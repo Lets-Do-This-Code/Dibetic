@@ -1,0 +1,22 @@
+from microbit import *
+level = 0
+start_level = 0
+how_much = 0
+while True:
+  if button_a.was_pressed():
+    level += 1
+    display.show(str(level))
+    
+  elif button_b.was_pressed():
+    start_level += 1
+    display.show(str(start_level))
+    
+  elif accelerometer.was_gesture("shake"):
+    how_much +=1
+    display.show(str(how_much))
+    
+  elif button_a.was_pressed() and button_b.was_pressed():
+    good = level-start_level
+    good2 = good/how_much
+    display.show(str(good2))
+    
